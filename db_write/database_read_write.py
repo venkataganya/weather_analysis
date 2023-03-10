@@ -1,9 +1,7 @@
-# Import required modules
 import csv
 import sqlite3
 import os
-#from extract_data.extract import logging
-import logging
+from extract_data.extract import logging
 
 class DbWrite:
 	"""
@@ -301,10 +299,5 @@ class DbWrite:
 		connection.commit()
 		connection.close()
 		return data
-
-if __name__ == "__main__":
-	db = DbWrite(db = 'db/WeatherData.db')
-	#db.write_data(sub_1='Enriched_files', sub_2= 'aggregated_data')
-	db.write_data(sub_1='enriched_files', sub_2= 'transformed_data')
 
 
