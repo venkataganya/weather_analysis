@@ -51,9 +51,9 @@ def aggregated_dataset(transform_df):
                     region,
                     concat_ws('-',region, left(temperature_recorded_date,4)) as w_key, 
                     left(temperature_recorded_date,4) as avg_year,
-                    cast(sum(CASE WHEN max_temp_in_C IS NOT NULL THEN 1 ELSE 0 END)/count(CASE WHEN max_temp_in_C IS NOT NULL THEN 1 ELSE 0 END) as decimal(18,2))as avg_max_temp,
-                    cast(sum(CASE WHEN min_temp_in_C IS NOT NULL THEN 1 ELSE 0 END)/count(CASE WHEN min_temp_in_C IS NOT NULL THEN 1 ELSE 0 END) as decimal(18,2))as avg_min_temp,
-                    cast(sum(CASE WHEN precipitation_CM IS NOT NULL THEN 1 ELSE 0 END) as decimal(18,2)) as total_precip_cm
+                    cast(sum(CASE WHEN max_temp_in_C IS NOT NULL THEN max_temp_in_C ELSE 0 END)/count(CASE WHEN max_temp_in_C IS NOT NULL THEN max_temp_in_C ELSE 0 END) as decimal(18,2))as avg_max_temp,
+                    cast(sum(CASE WHEN min_temp_in_C IS NOT NULL THEN min_temp_in_C ELSE 0 END)/count(CASE WHEN min_temp_in_C IS NOT NULL THEN min_temp_in_C ELSE 0 END) as decimal(18,2))as avg_min_temp,
+                    cast(sum(CASE WHEN precipitation_CM IS NOT NULL THEN precipitation_CM ELSE 0 END) as decimal(18,2)) as total_precip_cm
                 from v_transform_df
                 group by region, left(temperature_recorded_date,4), concat_ws('-',region, left(temperature_recorded_date,4))
                             """)

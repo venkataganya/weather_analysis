@@ -135,7 +135,9 @@ raw_files_old/
 coding-exercise.txt
 .DS_Store
 enriched_files/
-db/
+*.db
 *.csv
 *.crc
-raw_files/
+*.txt
+*.png
+logs/*.txt

@@ -2,11 +2,13 @@ import os
 import io
 import logging
 import requests
+import datetime
 import regex as re
 import pandas as pd
 from bs4 import BeautifulSoup
 
-logging.basicConfig(filename=os.path.join(os.getcwd(), r'logs')+"/"+"Log.txt",
+ct = datetime.datetime.now()
+logging.basicConfig(filename=os.path.join(os.getcwd(), r'logs')+"/"+str(ct).replace(' ','_')+"_Log.txt",
                 level=logging.INFO,
                 format='%(levelname)s: %(asctime)s %(message)s',
                 datefmt='%m/%d/%Y %I:%M:%S')

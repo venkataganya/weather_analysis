@@ -27,7 +27,7 @@ def api_get_weather_agg_data(lower,upper):
 @app.route('/api/weather/transf/count', methods=['GET'])
 def api_get_transf_count():
     """
-    API endpoint: http://127.0.0.1:5000/api/weather/filter/USC00336196/1985-04-10
+    API endpoint: http://127.0.0.1:5000/api/weather/transf/count
     """
     data = db.get_count_transf()
     return jsonify(data)
