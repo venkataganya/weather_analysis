@@ -139,4 +139,3 @@ enriched_files/
 *.csv
 *.crc
 *.txt
-logs/*.txt

@@ -168,21 +168,19 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
 
 # AWS services that can be used for deployment of this project
 
-* **Amazon EC2**: EC2 is a web service that provides resizable compute capacity in the cloud. You can use EC2 to create a virtual machine to run Flask, the database, and the data ingestion code.
+* **Amazon EC2**: EC2 is a web service that provides resizable compute capacity in the cloud. EC2 can be used to create a virtual machine to run Flask, the database, and the data ingestion code.
 
-* **Amazon RDS**: Amazon RDS is a managed relational database service that provides an easy-to-set-up, operate, and scale database in the cloud. You can use Amazon RDS to deploy a database that can fetch data to publish in the API and connect with Flask.
+* **Amazon RDS**: Amazon RDS is a managed relational database service that provides an easy-to-set-up, operate, and scale database in the cloud. Amazon RDS can be used to deploy a database that can fetch data to publish in the API and connect with Flask.
 
-* **Amazon S3**: Amazon S3 is an object storage service that can be used to store large amounts of data in the cloud. You can use Amazon S3 to store files and data that are accessed by the data ingestion code.
+* **Amazon S3**: Amazon S3 is an object storage service that can be used to store large amounts of data in the cloud.  Amazon S3 can store files and data that are accessed by the data ingestion code.
 
-* **Amazon API Gateway**: Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. You can use Amazon API Gateway to deploy the API.
+* **Amazon API Gateway**: Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. Hence, Amazon API Gateway can be used  to deploy the API.
 
-* **AWS Lambda**: AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. You can use AWS Lambda to schedule the data ingestion code written in Python and Apache Spark to run at specific times.
+* **AWS Lambda**: AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. AWS Lambda can be used to schedule the data ingestion code written in Python and Apache Spark to run at specific times.
 
-* **Apache Spark on Amazon EMR**: Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Spark and Apache Hadoop, on AWS. You can use Amazon EMR to deploy Apache Spark and run the data ingestion code.
+* **Apache Spark on Amazon EMR**: Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Spark and Apache Hadoop, on AWS. Amazon EMR can be used to deploy Apache Spark and run the data ingestion code.
 
-* **Amazon CloudWatch**: Amazon CloudWatch is a monitoring and observability service that can be used to monitor the performance of the API, database, and data ingestion code. You can use Amazon CloudWatch to set up alarms and notifications based on metrics such as CPU utilization, database connections, and error rates.
-
-* **AWS Identity and Access Management (IAM)**: AWS IAM is a web service that helps you securely control access to AWS resources. You can use AWS IAM to create and manage AWS users and groups, and to control access to the API, database, and data ingestion code.
+* **AWS Identity and Access Management (IAM)**: AWS IAM is a web service that helps you securely control access to AWS resources. AWS IAM can be used to create and manage AWS users and groups, and to control access to the API, database, and data ingestion code.
 
 
 
