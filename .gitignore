@@ -139,5 +139,4 @@ enriched_files/
 *.csv
 *.crc
 *.txt
-*.png
 logs/*.txt

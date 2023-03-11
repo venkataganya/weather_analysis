@@ -19,28 +19,28 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
         
         
               raw_files extracted from github repository
-    ![Getting Started](./raw_files.png)
+    ![Getting Started](./images/raw_files.png)
 
 * ### Data Transformation and analysis - transform.py:
 
     1. This part is done using Apache Spark engine. We utilize the .txt files created, instatiate a Sparksession to create a spark dataframe
     *     raw_files read into a spark dataframe
-    ![Getting Started](./csv_show.png)
+    ![Getting Started](./images/csv_show.png)
 
     2. The txt-file based data frame (with raw data) is cleansed and transformed with applying approriate data types replacing missing vales with NULLS and creating a key that will act as a unique identifier.
     *     w_key: A combination of date and region
     *     raw data after cleansing
-    ![Getting Started](./transform_show.png)
+    ![Getting Started](./images/transform_show.png)
     *     schema
-    ![Getting Started](./schema.png)
+    ![Getting Started](./images/schema.png)
 
     3. The cleansed data set is used for performing calculations and aggregations.
     *     aggregated data by year and region
-    ![Getting Started](./agg.png)
+    ![Getting Started](./images/agg.png)
 
     4. We sink the two datasets back into a different folder as .csv files, which is used to insert into a database and expose the data via an API.
     
-    ![Getting Started](./enriched.png)
+    ![Getting Started](./images/enriched.png)
 
     5. The SQL for the questions asked below are part of function **aggregated_dataset()**
 
@@ -54,12 +54,12 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
     1.  **SQLite** database is used as it's easy to spin it up, lightweight and works seamless with native python.
 
     2. We have a **DbWrite** class that spins up a database in SQLite and different methods in the DbWrite class perform DDL, DML, DCL operations.
-    ![Getting Started](./db.png)
+    ![Getting Started](./images/db.png)
 
     3. We have two (**create_aggregate_table()** and **create_transformed_table()**) methods that create the tables one for the transformed data one for the the calculated data.
 
     4. The two tables are created under the database (**WeatherData.db**) that was spin up while instatiating the DbWrite class.
-     ![Getting Started](./tb.png)
+     ![Getting Started](./images/tb.png)
 
     ### Table Design: 
 
@@ -75,10 +75,10 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
     4. For any **NULL** value in maximum temperature, minimum temperature or precipitation recorded for a particular date, we identify it as 0 to calculate the average.
         
            Data from table weather_transformed
-        ![Getting Started](./wt_db.png)
+        ![Getting Started](./images/wt_db.png)
                     
            Data from table weather_aggregate
-        ![Getting Started](./wa_db.png)
+        ![Getting Started](./images/wa_db.png)
 
     4. The data in these tables is used to expose it via. an API
     
@@ -100,7 +100,7 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
 
          d. URL: http://127.0.0.1:5000/api/weather/1/100 , 1 and 100 represent the upper and lower bound results per page, these numbers can be changed in intervals of 100. Note: if the interval is set > 100 the query still shows 100  results.
 
-         ![Getting Started](./weather_api.png)
+         ![Getting Started](./images/weather_api.png)
 
     2. **api_get_weather_agg_data(lower,upper)** 
          
@@ -112,7 +112,7 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
 
          d. URL: http://127.0.0.1:5000/api/weather/stats/1/100 , 1 and 100 represent the upper and lower bound results per page, these numbers can be changed in intervals of 100. Note: if the interval is set > 100 the query still shows 100  results.
 
-        ![Getting Started](./wa-api.png)
+        ![Getting Started](./images/wa-api.png)
 
     3. **api_get_transf_count()** 
          
@@ -124,7 +124,7 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
 
          d. URL: http://127.0.0.1:5000/api/weather/transf/count 
 
-         ![Getting Started](./t_count.png)
+         ![Getting Started](./images/t_count.png)
 
     4. **api_get_aggr_count()** 
          
@@ -136,7 +136,7 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
 
          d. URL: http://127.0.0.1:5000/api/weather/agg/count
 
-         ![Getting Started](./a_count.png)
+         ![Getting Started](./images/a_count.png)
 
     5. **api_get_weather_form_data_yr_reg(region,temperature_recorded_date)** 
          
@@ -148,7 +148,7 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
 
          d. URL:  http://127.0.0.1:5000/api/weather/filter/USC00336196/1985-04-10 ,**USC00336196** represents the station/region parameter and **1985-04-10** represents the day temperature has been recorded.
 
-         ![Getting Started](./ff.png)
+         ![Getting Started](./images/ff.png)
     
     5. **api_get_weather_agg_data_yr_reg(avg_year,region)** 
          
@@ -160,7 +160,7 @@ Analysis of weather data records from 1985-01-01 to 2014-12-31 for weather stati
 
          d. URL:  http://127.0.0.1:5000/api/weather/stats/filter/1995/USC00132977 ,**USC00132977** represents the station/region parameter and **1995** represents the year the averages of temperature and the total precipitation are calculated.
 
-         ![Getting Started](./af.png)
+         ![Getting Started](./images/af.png)
 
     ### The api can be run from CLI using the below command or executing the **app.py** file 
         flask --app app run
